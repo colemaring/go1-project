@@ -17,3 +17,7 @@ Ensure the docker engine is running before running these commands. <br>
 # Running the examples in the container
 connect to Go1 over wifi and ensure your ipv4 is set to the specified value? -im not sure if this is needed for now <br>
 ```./example_walk``` <br>
+
+# Resources
+https://drive.google.com/file/d/1nypQTbIGKlfWGXmMQU6EwO20w23v6rBE/view <br>
+https://www.youtube.com/watch?v=tTCbdul7xsc <br>
