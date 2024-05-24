@@ -5,7 +5,7 @@ Git <br>
 Ensure the docker engine is running before running these commands. <br>
 
 # Building the images
- - May take a while depending on computer speed
+ - May take a while depending on computer speed <br>
 ```git clone https://github.com/colemaring/go1-docker.git ```<br>
 ```cd go1-docker/unitree_legged_sdk && docker build -t unitree_legged_sdk_image .```  <br>
 ```cd go1-docker/unitree_camera_sdk && docker build -t unitree_camera_sdk_image .```  <br>
