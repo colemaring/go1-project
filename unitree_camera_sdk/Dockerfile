@@ -1,1 +1,17 @@
+FROM ubuntu
 
+RUN apt-get update && apt-get upgrade -y
+
+RUN apt install -y wget git build-essential libboost-all-dev cmake freeglut3-dev libudev-dev libopencv-dev
+
+RUN git clone https://github.com/unitreerobotics/UnitreecameraSDK.git
+
+WORKDIR /UnitreeCameraSDK
+
+RUN mkdir build
+
+WORKDIR build
+
+RUN cmake ..
+
+RUN make
