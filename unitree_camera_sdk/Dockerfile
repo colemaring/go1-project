@@ -6,7 +6,7 @@ RUN apt install -y git build-essential libboost-all-dev cmake freeglut3-dev libu
 
 RUN git clone https://github.com/unitreerobotics/UnitreecameraSDK.git
 
-WORKDIR /UnitreeCameraSDK
+WORKDIR /UnitreecameraSDK
 
 RUN mkdir build
 
