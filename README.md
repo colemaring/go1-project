@@ -2,6 +2,8 @@
 [Docker](https://www.docker.com/get-started/) <br>
 Git <br>
 
+Ensure the docker engine is running before running these commands. <br>
+
 # Building the images
 ```git clone https://github.com/colemaring/go1-docker.git ```<br>
 ```cd go1-docker/unitree_legged_sdk && docker build -t unitree_legged_sdk_image .```  <br>
