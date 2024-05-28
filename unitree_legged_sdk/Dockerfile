@@ -16,7 +16,7 @@ RUN ./b2 install; exit 0
 
 WORKDIR /
 
-RUN git clone -b v3.8.0 https://github.com/unitreerobotics/unitree_legged_sdk.git unitree_legged_sdk
+RUN git clone -b v3.8.0 https://github.com/colemaring/unitree_legged_sdk.git unitree_legged_sdk
 
 WORKDIR /unitree_legged_sdk
 
