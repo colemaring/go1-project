@@ -26,5 +26,5 @@ For camera SDK <br>
 
 # Resources
 TODO: <br>
+Robot modes: https://unitree-docs.readthedocs.io/en/latest/get_started/Go1_Edu.html <br>
 add python build option as a tag <br>
-add wifi or wired connection as tag and automatically change ip <br>
