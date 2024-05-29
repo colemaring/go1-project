@@ -12,8 +12,8 @@ Ensure the docker engine is running before running these commands. <br>
 
 # Running the images
 -power on and connect to the Go1's wifi network. Password is 00000000 <br>
-```cd go1-docker/unitree_legged_sdk && docker run -it unitree_legged_sdk_image```  <br>
-```cd go1-docker/unitree_camera_sdk && docker run -it unitree_camera_sdk_image```  <br>
+```docker run -it unitree_legged_sdk_image```  <br>
+```docker run -it unitree_camera_sdk_image```  <br>
 
 # Running the examples in the container
 connect to Go1 over wifi and ensure your ipv4 is set to the specified value? -im not sure if this is needed for now <br>
