@@ -1,7 +1,8 @@
+# pip install mediapipe opencv-python
+
 import cv2
 import mediapipe as mp
 
-# Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(
     model_complexity=1,
@@ -9,10 +10,7 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.5
 )
 
-# Initialize MediaPipe Drawing
 mp_drawing = mp.solutions.drawing_utils
-
-# Initialize webcam
 cap = cv2.VideoCapture(0)
 
 while cap.isOpened():
@@ -21,13 +19,11 @@ while cap.isOpened():
         print("Ignoring empty camera frame.")
         continue
 
-    # Convert the BGR image to RGB.
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    # Process the image and find hands
     results = hands.process(image_rgb)
 
-    # Draw hand landmarks on the image
+    # draw landmarks on hands
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(
@@ -38,12 +34,13 @@ while cap.isOpened():
                 mp_drawing.DrawingSpec(color=(250, 44, 250), thickness=2, circle_radius=2),
             )
 
-    # Display the resulting image
+    # display the image
     cv2.imshow('Hand Gesture Recognition', image)
 
-    if cv2.waitKey(5) & 0xFF == 27:  # Press 'ESC' to exit
+    # ESC to exit
+    if cv2.waitKey(5) & 0xFF == 27:
         break
-
-# Release the webcam and close all OpenCV windows
+        
+# cleanup
 cap.release()
 cv2.destroyAllWindows()
