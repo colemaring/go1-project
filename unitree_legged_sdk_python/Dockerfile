@@ -29,3 +29,6 @@ RUN apt install -y libmsgpack-dev --fix-missing
 RUN cmake -DPYTHON_BUILD=TRUE ..
 
 RUN make
+
+COPY gestures.py /unitree_legged_sdk/example_py/
+COPY main.py /unitree_legged_sdk/example_py/
