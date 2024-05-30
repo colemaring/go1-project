@@ -6,10 +6,10 @@ Ensure the docker engine is running before running these commands. <br>
 
 # Building the images
  - May take a while depending on computer speed <br>
-```git clone https://github.com/colemaring/go1-docker.git ```<br>
-```cd go1-docker/unitree_legged_sdk && docker build -t unitree_legged_sdk_image .```  <br>
-```cd go1-docker/unitree_camera_sdk && docker build -t unitree_camera_sdk_image .```  <br>
-```cd go1-docker/unitree_legged_sdk_python && docker build -t unitree_legged_sdk_image_python .```  <br>
+```git clone https://github.com/colemaring/go1-project.git ```<br>
+```cd go1-project/unitree_legged_sdk && docker build -t unitree_legged_sdk_image .```  <br>
+```cd go1-project/unitree_camera_sdk && docker build -t unitree_camera_sdk_image .```  <br>
+```cd go1-project/unitree_legged_sdk_python && docker build -t unitree_legged_sdk_image_python .```  <br>
 
 # Running the images
 -power on and connect to the Go1's wifi network. Password is 00000000 <br>
