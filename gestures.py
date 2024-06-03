@@ -49,6 +49,17 @@ def get_gesture(hand_landmarks):
     
     elif tip_pip_index_delta_x>0 and orient_ratio > 0.5:
         return "pointing left"
+
+    elif tip_mcp_middle_delta_y < 0 and tip_mcp_index_delta_y > 0 and orient_ratio < 0.5:
+        return "pointing down"
+    elif abs(Thumb_tip[1] - Wrist[1]) > 0.2 and abs(Index_tip[1] - Wrist[1]) > 0.2 and abs(Middle_tip[1] - Wrist[1]) > 0.2 and abs(ring_tip[1] - Wrist[1]) > 0.2 and abs(pinky_tip[1] - Wrist[1]) > 0.2:
+        return "hand open"
+    elif abs(Index_tip[1] - Index_mcp[1]) > 0.2 and abs(pinky_tip[1] - pinky_mcp[1]) > 0.2 and abs(Middle_tip[1] - Middle_mcp[1]) < 0.1 and abs(ring_tip[1] - ring_mcp[1]) < 0.1:
+        return "rock n roll"
+    elif abs(Index_tip[1] - Index_mcp[1]) > 0.2 and abs(Middle_tip[1] - Middle_mcp[1]) > 0.2 and abs(ring_tip[1] - ring_mcp[1]) > 0.2 and abs(Thumb_tip[1] - Wrist[1]) < 0.1 and abs(pinky_tip[1] - Wrist[1]) < 0.1:
+        return "number 3"
+    elif abs(Index_tip[1] - Index_mcp[1]) > 0.2 and abs(Middle_tip[1] - Middle_mcp[1]) > 0.2 and abs(ring_tip[1] - ring_mcp[1]) < 0.1 and abs(pinky_tip[1] - pinky_mcp[1]) < 0.1:
+        return "peace"
     
     else:
         return "None"
