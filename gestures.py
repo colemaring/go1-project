@@ -41,6 +41,7 @@ def get_gesture(hand_landmarks):
     tip_pip_middle_delta_x =Middle_tip[0]-Middle_pip[0]
     tip_pip_index_delta_x = Index_tip[0]-Index_pip[0]
 
+
     if tip_mcp_middle_delta_y >0 and tip_mcp_index_delta_y<0 and orient_ratio <0.5:
         return "pointing up"
         
@@ -54,10 +55,10 @@ def get_gesture(hand_landmarks):
         return "pointing down"
     elif abs(Thumb_tip[1] - Wrist[1]) > 0.2 and abs(Index_tip[1] - Wrist[1]) > 0.2 and abs(Middle_tip[1] - Wrist[1]) > 0.2 and abs(ring_tip[1] - Wrist[1]) > 0.2 and abs(pinky_tip[1] - Wrist[1]) > 0.2:
         return "hand open"
-    elif abs(Index_tip[1] - Index_mcp[1]) > 0.2 and abs(pinky_tip[1] - pinky_mcp[1]) > 0.2 and abs(Middle_tip[1] - Middle_mcp[1]) < 0.1 and abs(ring_tip[1] - ring_mcp[1]) < 0.1:
-        return "rock n roll"
-    elif abs(Index_tip[1] - Index_mcp[1]) > 0.2 and abs(Middle_tip[1] - Middle_mcp[1]) > 0.2 and abs(ring_tip[1] - ring_mcp[1]) > 0.2 and abs(Thumb_tip[1] - Wrist[1]) < 0.1 and abs(pinky_tip[1] - Wrist[1]) < 0.1:
-        return "number 3"
+    elif Thumb_tip[0] < Wrist[0] and abs(Index_tip[1] - Wrist[1]) < 0.1 and abs(Middle_tip[1] - Wrist[1]) < 0.1 and abs(ring_tip[1] - Wrist[1]) < 0.1 and abs(pinky_tip[1] - Wrist[1]) < 0.1:
+        return "thumbs left"
+    elif Thumb_tip[0] > Wrist[0] and abs(Index_tip[1] - Wrist[1]) < 0.1 and abs(Middle_tip[1] - Wrist[1]) < 0.1 and abs(ring_tip[1] - Wrist[1]) < 0.1 and abs(pinky_tip[1] - Wrist[1]) < 0.1:
+        return "thumbs right"
     elif abs(Index_tip[1] - Index_mcp[1]) > 0.2 and abs(Middle_tip[1] - Middle_mcp[1]) > 0.2 and abs(ring_tip[1] - ring_mcp[1]) < 0.1 and abs(pinky_tip[1] - pinky_mcp[1]) < 0.1:
         return "peace"
     
