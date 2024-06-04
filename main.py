@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import gestures
+from collections import deque
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
@@ -16,6 +17,9 @@ mp_drawing = mp.solutions.drawing_utils
 
 # Initialize webcam
 cap = cv2.VideoCapture(0)
+
+# Initialize deque to store last 10 gestures
+gesture_history = deque(maxlen=30)
 
 while cap.isOpened():
     success, image = cap.read()
@@ -42,11 +46,16 @@ while cap.isOpened():
 
             # Get the current gesture
             current_gesture = gestures.get_gesture(hand_landmarks)
-            print(current_gesture)
+            gesture_history.append(current_gesture)
 
-            # Write the current gesture to the file
-            with open("command.txt", "w") as file:
-                file.write(current_gesture)
+            # Print the majority gesture if history is full
+            if len(gesture_history) == gesture_history.maxlen:
+                majority_gesture = max(set(gesture_history), key=gesture_history.count)
+                print(majority_gesture)
+
+                # Write the majority gesture to the file
+                with open("command.txt", "w") as file:
+                    file.write(majority_gesture)
 
     # Display the image with landmarks
     cv2.imshow('Hand Tracking', image)
