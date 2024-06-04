@@ -54,12 +54,26 @@ void Custom::RobotControl() {
     if (current_command == "pointing left") {
         cmd.mode = 1;
         ApplyLowPassFilter(cmd.euler[1], 0.4f, 0.1f);  // Apply low-pass filter to Euler angle
-        std::cout << "Robot is pointing left (mode 1)" << std::endl;
+        std::cout << "pointing left (mode 1)" << std::endl;
     } else if (current_command == "pointing right") {
         cmd.mode = 1;
         ApplyLowPassFilter(cmd.euler[1], -0.4f, 0.1f);  // Apply low-pass filter to Euler angle
-        std::cout << "Robot is pointing right (mode 2)" << std::endl;
+        std::cout << "pointing right (mode 2)" << std::endl;
+    } else if (current_command == "thumbs right") {
+        cmd.mode = 12;
+        std::cout << "thumbs right (mode 12)" << std::endl;
+    } else if (current_command == "peace") {
+        cmd.mode = 11;
+        std::cout << "peace (mode 11)" << std::endl;
+    } else if (current_command == "hand open") {
+        cmd.mode = 13;
+        std::cout << "hand open (mode 13)" << std::endl;
+    } 
+    else if (current_command == "pointing up") {
+        cmd.mode = 9;
+        std::cout << "pointing up (mode 9)" << std::endl;
     }
+    
      else {
         cmd.mode = 0;  // Default idle mode
         ApplyLowPassFilter(cmd.euler[0], 0.0f, 0.1f);  // Apply low-pass filter to Euler angle X
