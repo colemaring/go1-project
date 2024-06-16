@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/1tqiCuwmOCMPo5tFlDVaemyEDzSdxMORl7l26bqoUeI0/edit?usp=sharing<br>
+
 # Dependencies
 [Docker](https://www.docker.com/get-started/) <br>
 Git <br>
