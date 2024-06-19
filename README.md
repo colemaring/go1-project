@@ -1,5 +1,20 @@
 https://docs.google.com/document/d/1tqiCuwmOCMPo5tFlDVaemyEDzSdxMORl7l26bqoUeI0/edit?usp=sharing<br>
 
+
+# How to run what we have so far
+Steps: <br>
+Git clone unitree legged sdk <br>
+Add the following 2 lines to CMakeLists.txt: <br>
+ > add_executable(run example/run.cpp) <br>
+ > target_link_libraries(run ${EXTRA_LIBS}) <br><br>
+
+Move run.cpp into examples folder <br>
+Cd into build and compile (cmake .. and make) <br>
+run with ./run <br><br>
+
+Now run main.py
+
+
 # Dependencies
 [Docker](https://www.docker.com/get-started/) <br>
 Git <br>
