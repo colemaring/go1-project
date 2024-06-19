@@ -6,12 +6,11 @@ Steps: <br>
 Git clone unitree legged sdk <br>
 Add the following 2 lines to CMakeLists.txt: <br>
  > add_executable(run example/run.cpp) <br>
- > target_link_libraries(run ${EXTRA_LIBS}) <br><br>
+ > target_link_libraries(run ${EXTRA_LIBS}) <br>
 
 Move run.cpp into examples folder <br>
 Cd into build and compile (cmake .. and make) <br>
 run with ./run <br><br>
-
 Now run main.py
 
 
