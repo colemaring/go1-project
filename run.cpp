@@ -59,25 +59,31 @@ void Custom::RobotControl()
     ReadCommand(); // Read command from file
 
     // Adjust robot mode based on the command read
-    if (current_command == "pointing left") // look up
+    if (current_command == "pointing left") // rotate left
     {
-        cmd.mode = 1;
-        ApplyLowPassFilter(cmd.euler[1], 0.4f, 0.1f); // Apply low-pass filter to Euler angle
-        std::cout << "pointing left (mode 1 euler)" << std::endl;
+        cmd.mode = 2;
+        cmd.gaitType = 1;
+        cmd.velocity[0] = 0.0f;
+        cmd.footRaiseHeight = 0.1;
+        cmd.yawSpeed = 0.5;
+        std::cout << "pointing left (rotate left)" << std::endl;
     }
-    else if (current_command == "pointing right") // look down
+    else if (current_command == "pointing right") // rotate right
     {
-        cmd.mode = 1;
-        ApplyLowPassFilter(cmd.euler[1], -0.4f, 0.1f); // Apply low-pass filter to Euler angle
-        std::cout << "pointing right (mode 1 euler)" << std::endl;
+        cmd.mode = 2;
+        cmd.gaitType = 1;
+        cmd.velocity[0] = 0.0f;
+        cmd.footRaiseHeight = 0.1;
+        cmd.yawSpeed = -0.5;
+        std::cout << "pointing right (rotate right)" << std::endl;
     }
-    else if (current_command == "pointing up")
+    else if (current_command == "pointing up") // walk forwards
     {
         cmd.mode = 2;
         cmd.gaitType = 1;
         cmd.velocity[0] = 0.3f;
         cmd.footRaiseHeight = 0.1;
-        std::cout << "pointing up (mode 2 walking)" << std::endl;
+        std::cout << "pointing up (walking forwards)" << std::endl;
     }
     else if (current_command == "thumbs right") // low speed walk sideways
     {
@@ -95,21 +101,18 @@ void Custom::RobotControl()
         cmd.footRaiseHeight = 0.1;
         std::cout << "thumbs left (mode 12)" << std::endl;
     }
-    else if (current_command == "peace") // spin in place
+    else if (current_command == "peace") // looking up
     {
-        cmd.mode = 2;
-        cmd.gaitType = 1;
-        cmd.velocity[0] = 0.0f;
-        cmd.footRaiseHeight = 0.1;
-        cmd.yawSpeed = 1.8;
-        std::cout << "peace (mode 11)" << std::endl;
+        cmd.mode = 1;
+        ApplyLowPassFilter(cmd.euler[1], -0.4f, 0.1f); // Apply low-pass filter to Euler angle
     }
 
     else
     {
         cmd.mode = 0;
         cmd.velocity[0] = 0.0;
-        cmd.velocity[1] = 0.0;                        // Default idle mode                       // Default idle mode
+        cmd.velocity[1] = 0.0;
+        cmd.yawSpeed = 0;                             // Default idle mode                       // Default idle mode
         ApplyLowPassFilter(cmd.euler[0], 0.0f, 0.1f); // Apply low-pass filter to Euler angle X
         ApplyLowPassFilter(cmd.euler[1], 0.0f, 0.1f); // Apply low-pass filter to Euler angle Y
         ApplyLowPassFilter(cmd.euler[2], 0.0f, 0.1f); // Apply low-pass filter to Euler angle Z
