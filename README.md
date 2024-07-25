@@ -8,7 +8,7 @@ Add the following 2 lines to CMakeLists.txt: <br>
 > target_link_libraries(run ${EXTRA_LIBS}) <br>
 git clone https://github.com/colemaring/go1-project.git <br>
 Move run.cpp into examples folder <br>
-cd build and compile. you'll need these dependencies. <br>
+cd build and compile. you'll need [these dependencies](https://github.com/colemaring/go1-project/blob/main/dependencies). <br>
 > cmake ..
 > make
 Connect to Go1's network. Password is 00000000
