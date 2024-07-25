@@ -1,0 +1,15 @@
+According to Unitree these are the dependencies needed to use the legged sdk.
+  Boost (version 1.5.4 or higher)
+  CMake (version 2.8.3 or higher)
+  g++ (version 8.3.0 or higher)
+
+However you'll explicitly need Boost version 1.5.4, you can get that by running the following
+
+apt-get update && apt-get upgrade -y
+apt install -y wget git build-essential libboost-all-dev cmake
+wget https://sourceforge.net/projects/boost/files/boost/1.54.0/boost_1_54_0.tar.gz/download -O boost_1_54_0.tar.gz
+tar -xvzf boost_1_54_0.tar.gz
+cd boost_1_54_0
+./bootstrap.sh
+./b2
+./b2 install
