@@ -1,5 +1,6 @@
 https://docs.google.com/document/d/1tqiCuwmOCMPo5tFlDVaemyEDzSdxMORl7l26bqoUeI0/edit?usp=sharing<br>
-![20240716_161244 (3)](https://github.com/user-attachments/assets/0bbc0fd0-54de-45cb-8d91-351bbafafe30)
+
+![video_demo](https://github.com/user-attachments/assets/38844afb-68b1-4473-9b1a-57e224609da3)
 
 
 # How to run what we have so far
