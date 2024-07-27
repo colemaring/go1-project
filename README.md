@@ -9,8 +9,8 @@ Add the following 2 lines to CMakeLists.txt: <br>
 ```target_link_libraries(run ${EXTRA_LIBS}) ```<br><br>
 
 ```git clone https://github.com/colemaring/go1-project.git ```<br>
-Move run.cpp into examples folder <br>
-cd build and compile. you'll need [these dependencies](https://github.com/colemaring/go1-project/blob/main/dependencies). <br>
+```mkdir build```<br>
+cd build and compile. you'll need [these dependencies](https://github.com/colemaring/go1-project/blob/main/dependencies) (legged_sdk is in this branch as a submodule). <br>
 ```cmake .. && make``` <br><br>
 
 Connect to Go1's network. Password is 00000000 <br>
@@ -19,3 +19,4 @@ Now run main.py<br>
 
 # Resources 
 cmd modes: https://unitree-docs.readthedocs.io/en/latest/get_started/Go1_Edu.html <br>
+

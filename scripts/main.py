@@ -54,7 +54,7 @@ while cap.isOpened():
                 print(majority_gesture)
 
                 # Write the majority gesture to the file
-                with open("command.txt", "w") as file:
+                with open("../command.txt", "w") as file:
                     file.write(majority_gesture)
 
     # Display the image with landmarks

@@ -27,6 +27,7 @@ public:
     int motiontime = 0;
     float dt = 0.002; // 0.001~0.01
     std::string current_command;
+    std::string filepath;
 };
 
 void Custom::UDPRecv()
@@ -41,13 +42,20 @@ void Custom::UDPSend()
 
 void Custom::ReadCommand()
 {
-    std::ifstream command_file("/mnt/c/users/colem/OneDrive/Desktop/go1-project-main/command.txt");
+    std::ifstream command_file;
+    if(filepath.empty()){
+        command_file = std::ifstream("/mnt/c/users/colem/OneDrive/Desktop/go1-project-main/command.txt");
+    }
+    else{
+        command_file = std::ifstream(filepath);
+    }
     if (command_file.is_open())
     {
         std::getline(command_file, current_command);
         command_file.close();
     }
 }
+
 
 void Custom::ApplyLowPassFilter(float &target, float current, float alpha)
 {
@@ -56,8 +64,6 @@ void Custom::ApplyLowPassFilter(float &target, float current, float alpha)
 
 void Custom::RobotControl()
 {
-    ReadCommand(); // Read command from file
-
     // Adjust robot mode based on the command read
     if (current_command == "pointing left") // rotate left
     {
@@ -126,7 +132,7 @@ void Custom::RobotControl()
     udp.SetSend(cmd);
 }
 
-int main(void)
+int main(int argc, char* argv[])
 {
     std::cout << "Communication level is set to HIGH-level." << std::endl
               << "WARNING: Make sure the robot is standing on the ground." << std::endl
